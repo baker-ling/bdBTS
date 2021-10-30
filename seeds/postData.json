@@ -1,0 +1,27 @@
+[
+  {
+    "user_id": 1,
+    "title": "Welcome to my blog site",
+    "body": "This site is new. I am trying things out. Please enjoy and be nice."
+  },
+  {
+    "user_id": 2,
+    "title": "Blog Sites",
+    "body": "Here we have another blog site for you to blog at. Blog away."
+  },
+  {
+    "user_id": 3,
+    "title": "(ノ｀Д´)ノ彡┻━┻",
+    "body": "Don't do this ⬆️ please."
+  },
+  {
+    "user_id": 1,
+    "title": "<b>ed and <br>eakfast code",
+    "body": "Here's how you use semantic HTML & CSS for well-structured, accessible documents with proper styling.\n..."
+  },
+  {
+    "user_id": 2,
+    "title": "Do you know your HTML entities?",
+    "body": " &lt; &gt; &amp; &quot; and many more!"
+  }
+]

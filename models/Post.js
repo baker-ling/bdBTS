@@ -1,7 +1,5 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
-const encodeContent = require('../utils/encodeContent');
-
 class Post extends Model {}
 
 Post.init(
@@ -16,16 +14,16 @@ Post.init(
       type: DataTypes.INTEGER,
       allowNull: false
     },
-    content: {
+    title: {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
+    body: {
       type: DataTypes.TEXT,
       allowNull: false,
     }
   },
   {
-    hooks: {
-      beforeCreate: encodeContent,
-      beforeUpdate: encodeContent 
-    },
     sequelize,
     timestamps: true,
     freezeTableName: true,
