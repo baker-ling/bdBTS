@@ -8,7 +8,7 @@ const commentFormHandler = async (event) => {
   const post_id = parseInt(path.substr(path.lastIndexOf('/') + 1));
 
   if (comment) {
-    // Send the e-mail and password to the server
+    // Send the comment to the server
     const response = await fetch(`/api/posts/${post_id}/comment`, {
       method: 'POST',
       body: JSON.stringify({ body: comment }),

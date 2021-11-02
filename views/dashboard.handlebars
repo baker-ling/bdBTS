@@ -4,15 +4,15 @@
     <article class="box">
       <header class="columns is-vcentered">
         <div class="column">
-          <h1 class="title"><a href="./post/{{post.id}}">{{post.title}}</a></h1>
+          <h1 class="title"><a href="/dashboard/post/{{post.id}}">{{post.title}}</a></h1>
         </div>
-        <div class="column">
+        <div class="column is-narrow">
           <h2 class="subtitle">Posted on <span
             class="has-text-info">{{as_date post.updatedAt}}</span></h2>
         </div>
-        <div class="column">
-          <button class="button edit-button">Edit</button>
-          <button class="delete"></button>
+        <div class="column is-narrow">
+          <a class="button edit-button is-rounded is-warning" href="/dashboard/post/{{post.id}}">Edit Post</a> 
+          <button class="button delete-button is-rounded is-danger" data-id="{{post.id}}">Delete</button>
         </div>
       </header>
       <div class="content">{{post.body}}
@@ -20,8 +20,10 @@
     </article>
     {{/each}}
   </div>
+  <script src="/js/dashboard.js"></script>
 {{/if}}
 
-<div id="newPostContainer" class="container">
-  <a href="./post" class="button">Add new post</a>
+<div id="newPostContainer" class="container mt-6 has-text-centered">
+  
+  <a href="/dashboard/post" class="button is-large is-primary is-rounded">Add new post</a>
 </div>

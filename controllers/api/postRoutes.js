@@ -18,9 +18,10 @@ router.post('/', withAuth, async (req, res) => {
       });
     }
 
-    return res.redirect(`/dashboard`);
+    return res.status(200).json({message: `Your post was successfully created.`});
 
   } catch (err) {
+    err.message = err.message ?? `Failed to create your post.`
     res.status(400).json(err);
   }
 });
@@ -31,15 +32,17 @@ router.put('/:id', withAuth, async (req, res) => {
     const { body, title } = req.body;
     const [updatedRows, updatedPosts] = await Post.update(
       { title, body },
-      { where: { id: req.params.id }, returning: true }
+      {
+        where: { id: req.params.id, user_id: req.session.user_id}
+      }
     );
     if (!updatedRows) {
-      return res.status(500).json({
+      return res.status(400).json({
         message: "Failed to update your post."
       });
     }
 
-    return res.redirect(`/dashboard`);
+    return res.status(200).json({message: `Post successfully updated.`});
   } catch (err) {
     res.status(400).json(err);
   }
@@ -48,14 +51,19 @@ router.put('/:id', withAuth, async (req, res) => {
 // delete a post
 router.delete('/:id', withAuth, async (req, res) => {
   try {
-    const deleteResult = await Post.destroy({where: {id: req.params.id }});
+    const deleteResult = await Post.destroy({
+      where: {
+        id: req.params.id,
+        user_id: req.session.user_id
+      }
+    });
     if (!deleteResult) {
-      return res.status(500).json({
+      return res.status(400).json({
         message: "Failed to delete your post."
       });
     }
 
-    return res.redirect(`/dashboard`);
+    return res.status(200).json({message: `Post successfully deleted.`});
   } catch (err) {
     res.status(400).json(err);
   }

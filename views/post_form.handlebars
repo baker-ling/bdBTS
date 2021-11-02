@@ -1,0 +1,28 @@
+<div class="container">
+  <h1 class="title">
+    {{#if post }}
+      Update Post
+    {{else}}
+      Add New Post
+    {{/if}}
+  </h1>
+  <form id="post-form" class="form">
+    <div class="field">
+      <label for="post-title" class="label">Post Title:</label>
+      <input class="input" type="text" id="post-title" maxlength="255"
+        {{#if post}}
+          value="{{post.title}}"
+        {{/if}}
+      />
+    </div>
+    <div class="field">
+      <label for="post-body" class="label">Post Body:</label>
+      <textarea class="textarea" id="post-body">{{#if post}}{{post.body}}{{/if}}</textarea>
+    </div>
+    <div class="field">
+      <button class="button is-link" type="submit">Submit</button>
+    </div>
+    <p id="post_warning" class="has-text-danger is-hidden">Post submission error message goes here.</p>
+  </form>
+  <script src="/js/post_form.js"></script>
+</div>
