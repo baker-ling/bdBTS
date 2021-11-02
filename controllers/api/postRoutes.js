@@ -65,7 +65,7 @@ router.delete('/:id', withAuth, async (req, res) => {
 router.post('/:id/comment', withAuth, async (req, res) => {
   try {
     const commentData = await Comment.create({
-      post_id: req.params.id,
+      post_id: parseInt(req.params.id),
       user_id: req.session.user_id,
       body: req.body.body
     });
@@ -74,8 +74,7 @@ router.post('/:id/comment', withAuth, async (req, res) => {
         message: "Failed to create your comment."
       });
     }
-
-    return req.redirect(`/posts/${req.params.id}`);
+    return res.status(200).json({ message: "Your comment was successfully added."});
   } catch (err) {
     res.status(400).json(err);
   }

@@ -1,10 +1,17 @@
-{{#each users as |user| }}
-<div class="row align-center mb-5">
-  <div class="col-md-6">
-    <h2>{{{get_emoji}}} {{user.name}}</h2>
+<div id="posts" class="container">
+{{#each posts as |post| }}
+<article class="box">
+  <header class="columns is-vcentered">
+    <div class="column">
+      <h1 class="title"><a href="/posts/{{post.id}}">{{post.title}}</a></h1>
+    </div>
+    <div class="column is-narrow">
+      <h2 class="subtitle">Posted by <span class="has-text-info">{{post.user.name}}</span> on <span
+        class="has-text-info">{{as_date post.updatedAt}}</span></h2>
+    </div>
+  </header>
+  <div class="content">{{post.body}}
   </div>
-  <div class="col-md-6">
-    <h3><a href="mailto:{{user.email}}">{{user.email}}</a></h3>
-  </div>
-</div>
+</article>
 {{/each}}
+</div>

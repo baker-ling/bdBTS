@@ -10,7 +10,7 @@ router.get('/', async (req, res) => {
   try {
     const postData = await Post.findAll({where: { user_id: req.session.user_id }});
     const posts = postData.map((post) => post.get({ plain: true }));
-    res.render('dashboard', { posts });
+    res.render('dashboard', { posts, logged_in: req.session.logged_in });
   } catch (err) {
     res.json(err);
   }
@@ -18,7 +18,7 @@ router.get('/', async (req, res) => {
 
 // new post page
 router.get('/post', async (req, res) => {
-  res.render('post_form');
+  res.render('post_form', { logged_in: req.session.logged_in});
 });
 
 // update post page
@@ -30,7 +30,7 @@ router.get('/post/:id', async (req, res) => {
       return;
     }
     const post = postData.get({ plain: true });
-    res.render('post_form', post);
+    res.render('post_form', {post, logged_in: req.session.logged_in});
   } catch (err) {
     res.status(500).json(err);
   };

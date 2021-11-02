@@ -41,6 +41,8 @@ router.post('/signup', async (req, res) => {
     });
 
   } catch (err) {
+    console.error(err);
+    err.message = err.message ?? 'An error occurred when creating your account.';
     res.status(400).json(err);
   }
 });
@@ -84,6 +86,7 @@ router.post('/login', async (req, res) => {
     });
 
   } catch (err) {
+    err.message = err.message ?? 'An error occurred when logging you in.';
     res.status(400).json(err);
   }
 });

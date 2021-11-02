@@ -1,0 +1,27 @@
+{{#if posts.length}}
+  <div id="posts" class="container">
+    {{#each posts as |post| }}
+    <article class="box">
+      <header class="columns is-vcentered">
+        <div class="column">
+          <h1 class="title"><a href="./post/{{post.id}}">{{post.title}}</a></h1>
+        </div>
+        <div class="column">
+          <h2 class="subtitle">Posted on <span
+            class="has-text-info">{{as_date post.updatedAt}}</span></h2>
+        </div>
+        <div class="column">
+          <button class="button edit-button">Edit</button>
+          <button class="delete"></button>
+        </div>
+      </header>
+      <div class="content">{{post.body}}
+      </div>
+    </article>
+    {{/each}}
+  </div>
+{{/if}}
+
+<div id="newPostContainer" class="container">
+  <a href="./post" class="button">Add new post</a>
+</div>
