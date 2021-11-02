@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>bdBTS - bdB's Tech Site</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css" crossorigin="anonymous">
+</head>
+
+<body>
+  <nav class="navbar" role="navigation" aria-label="main navigation">
+    <div class="container">
+      <div class="navbar-brand">
+        <a class="navbar-item" href="/">
+          <h1 class="is-family-monospace title">bdBTS</h1>
+        </a>
+        
+
+        <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+        </a>
+      </div>
+
+      <div id="navbarBasicExample" class="navbar-menu">
+        <div class="navbar-start">
+          <a class="navbar-item is-active" href="/">
+            Home
+          </a>
+  
+          <a class="navbar-item is-active" href="/dashboard">
+            Dashboard
+          </a>
+        </div>
+        <div class="navbar-end">
+          <div class="navbar-item">
+            <div class="buttons">
+              <a class="button is-primary" href="/login">
+                <strong>Log in / Sign up</strong>
+              </a>
+              <a class="button is-light" href="/logout">
+                Log out
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+  <section class="hero is-small is-link">
+    <div class="hero-body"></div>
+  </section>
+
+  <main class="section">
+    <div id="posts" class="container">
+      <article class="box">
+        <header class="columns is-vcentered">
+          <div class="column">
+            <h1 class="title">This is a post title</h1>
+          </div>
+          <div class="column is-narrow">
+            <h2 class="subtitle">Posted by <span class="has-text-info">poster</span> on <span
+              class="has-text-info">2021-10-31</span></h2>
+          </div>
+        </header>
+        <div class="content">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Autem quo hic iure ea, suscipit vel, excepturi quas accusamus voluptatibus perspiciatis aliquam non alias quidem nam eius. Officiis deleniti a commodi.
+        </div>
+      </article>
+
+      <article class="box">
+        <header class="columns is-vcentered">
+          <div class="column">
+            <h1 class="title">This is a post title</h1>
+          </div>
+          <div class="column is-narrow">
+            <h2 class="subtitle">Posted by <span class="has-text-info">poster</span> on <span
+              class="has-text-info">2021-10-31</span></h2>
+          </div>
+        </header>
+        <div class="content">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Autem quo hic iure ea, suscipit vel, excepturi quas accusamus voluptatibus perspiciatis aliquam non alias quidem nam eius. Officiis deleniti a commodi.
+        </div>
+      </article>
+
+      <article class="box">
+        <header class="columns is-vcentered">
+          <div class="column">
+            <h1 class="title">This is a post title</h1>
+          </div>
+          <div class="column is-narrow">
+            <h2 class="subtitle">Posted by <span class="has-text-info">poster</span> on <span
+              class="has-text-info">2021-10-31</span></h2>
+          </div>
+        </header>
+        <div class="content">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Autem quo hic iure ea, suscipit vel, excepturi quas accusamus voluptatibus perspiciatis aliquam non alias quidem nam eius. Officiis deleniti a commodi.
+        </div>
+      </article>
+    </div>
+  </main>
+
+
+  <footer class="footer">
+    <div class="content has-text-centered">
+      <p>
+        <strong class="is-family-monospace">bdBTS</strong> (B.D. Baker's Tech Site) is a tech blog site by <a
+          href="https://github.com/baker-ling">Brian Baker</a>. The source code is licensed
+        <a href="http://opensource.org/licenses/mit-license.php">MIT</a>. The website content
+        is licensed <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY NC SA 4.0</a>.
+      </p>
+    </div>
+  </footer>
+
+  <script>
+    // code to make the burger menu toggle work in the navbar
+    document.addEventListener('DOMContentLoaded', () => {
+
+      // Get all "navbar-burger" elements
+      const $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
+
+      // Check if there are any navbar burgers
+      if ($navbarBurgers.length > 0) {
+
+        // Add a click event on each of them
+        $navbarBurgers.forEach(el => {
+          el.addEventListener('click', () => {
+
+            // Get the target from the "data-target" attribute
+            const target = el.dataset.target;
+            const $target = document.getElementById(target);
+
+            // Toggle the "is-active" class on both the "navbar-burger" and the "navbar-menu"
+            el.classList.toggle('is-active');
+            $target.classList.toggle('is-active');
+
+          });
+        });
+      }
+
+    });
+  </script>
+</body>
+
+</html>
